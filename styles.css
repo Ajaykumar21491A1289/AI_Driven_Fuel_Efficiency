@@ -1,0 +1,42 @@
+/* Full-page background image */
+body {
+    background-image: url("/static/fuel.jpg"); /* Reference to background image */
+    background-size: cover; /* Cover entire page */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh; /* Ensure the body covers the entire height of the viewport */
+    margin: 0;
+    color: black; /* Default text color */
+    font-family: 'Arial', sans-serif;
+    position: relative; /* Needed for positioning pseudo-element */
+    overflow: auto; /* Allow scrolling if content exceeds viewport */
+}
+
+/* Add a pseudo-element for blurred image overlay */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Blur the full page */
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    filter: blur(8px); /* Apply blur effect to the entire background */
+    z-index: 1; /* Ensure it appears above the background but below content */
+    pointer-events: none; /* Allow interaction with content below */
+    opacity: 0.2; /* Make blur effect subtle */
+}
+
+/* Content container */
+.container {
+    position: relative; /* Ensure it sits above the blurred background */
+    z-index: 2; /* Higher z-index than the blurred section */
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}

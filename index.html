@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Efficiency Predictor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-5">Fuel Efficiency Predictor</h2>
+        <form id="prediction-form" class="mt-4">
+            <div class="form-group">
+                <label for="cylinders">Number of Cylinders:</label>
+                <input type="number" id="cylinders" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="displacement">Displacement:</label>
+                <input type="number" id="displacement" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="horsepower">Horsepower:</label>
+                <input type="number" id="horsepower" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="acceleration">Acceleration:</label>
+                <input type="number" id="acceleration" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="model_year">Model Year:</label>
+                <input type="number" id="model_year" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="origin">Origin (1: American, 2: European, 3: Asian):</label>
+                <input type="number" id="origin" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
